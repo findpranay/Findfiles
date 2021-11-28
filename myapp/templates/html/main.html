@@ -1,0 +1,44 @@
+{% extends 'html/layout.html' %}
+{% load static %}
+
+{% block content %}
+   
+   
+
+    
+    
+    <form method="post" enctype="multipart/form-data">
+        
+        {% csrf_token %}
+        <input type="text" placeholder="Enter The Caption" name="title">
+        <input type="file" name="image">
+        <input type="submit" value="submit">
+    </form>
+    <hr>
+<div class="row">
+    
+    {% for t in task_list %}
+    
+    <div class="col-lg-4">
+       <a href="{{t.image.url}}" > <img class="thumbnail" src="{{t.image.url}}"></a>
+        
+        <div class="box-element product">
+            <h6><strong>{{t.title}}</strong></h6>
+            <hr>
+<a href="{% url 'deleteimage' t.id %}">delete</a>
+<a href="{% url 'updateimage' t.id %}">update</a>
+
+            
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+{% endblock content %}
+
+ 
+</body>
+</html>

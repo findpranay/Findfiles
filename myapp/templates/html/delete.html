@@ -1,0 +1,11 @@
+{% extends 'html/layout.html' %}
+{% load static %}
+
+{% block content %}
+<form method = "POST"> 
+    {% csrf_token %}
+    <h3>Are you sure this task will done?</h3>
+    <button type="submit">Confirm</button>
+</form>
+            
+{% endblock content %}
